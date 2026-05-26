@@ -1123,16 +1123,16 @@ header {
 }
 
 .hero-lion-logo {
-    width: 180px; /* Reduced width to match the round logo size and fix the gap */
+    width: 450px;
     height: auto;
     object-fit: contain;
     padding: 0;
-    margin: 0 auto 1.5rem auto; /* Centered horizontally */
+    margin: 0 auto -20px auto;
     display: block;
-    filter: drop-shadow(0 0 30px rgba(198, 166, 100, 0.6));
-    animation: heroLogoPulse 3s infinite ease-in-out;
-    transform: translateY(0); /* Ensure no vertical shift on load */
-    transition: opacity 1.2s cubic-bezier(0.23, 1, 0.32, 1); /* Only animate opacity */
+    filter: none; /* Removed drop-shadow/glow effect */
+    animation: none; /* Removed pulse animation for a plain look */
+    transform: translateY(0);
+    transition: opacity 1.2s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 /* Override reveal for logo to prevent "jumping up" */
@@ -1759,7 +1759,7 @@ header {
     .hero h1 { font-size: 3.2rem; margin-bottom: 1.5rem; }
     .hero p { margin: 0 auto 2.5rem; font-size: 1.05rem; }
     .hero-tagline { justify-content: center; gap: 10px; font-size: 0.75rem; letter-spacing: 4px; }
-    .hero-lion-logo { width: 180px; margin: 0 auto 1.5rem auto; display: block; transform: translateY(0) !important; }
+    .hero-lion-logo { width: 320px; margin: 0 auto -10px auto; display: block; transform: translateY(0) !important; }
     .hero-tagline::before { width: 20px; }
     .hero-btns { justify-content: center; gap: 1rem; }
     .hero-stats { justify-content: center; gap: 2.5rem; }
