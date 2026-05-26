@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BRAVE PRESSO | Premium Coffee Beans — Rs 449/100g</title>
+    <meta name="description" content="Shop the finest single origin roasted Arabica coffee beans from BRAVE PRESSO. Premium quality, ethically sourced. Only Rs 449 per 100g. Free delivery across India.">
+    <meta name="keywords" content="BRAVE PRESSO, coffee beans, premium coffee, arabica, dark roast, Indian coffee, buy coffee online">
+    <meta name="author" content="BRAVE PRESSO">
+    <meta property="og:title" content="BRAVE PRESSO | Premium Coffee Beans">
+    <meta property="og:description" content="Experience coffee in its purest form. Hand-selected single origin Arabica beans, roasted to perfection.">
+    <meta property="og:image" content="./product.png">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/png" href="./lion-logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <!-- ==================== PRELOADER ==================== -->
+    <div id="preloader">
+        <div class="preloader-content">
+            <img src="./lion-logo.png" alt="Brave Presso Logo" class="preloader-logo">
+            <div class="preloader-bar-container">
+                <div class="preloader-bar"></div>
+            </div>
+            <span class="preloader-text">BRAVE PRESSO</span>
+        </div>
+    </div>
+
+    <!-- ==================== HEADER ==================== -->
+    <header id="header">
+        <!-- ==================== ANNOUNCEMENT BAR ==================== -->
+        <div class="announcement-bar">
+            <p>🎉 Special Offer: Get 10% OFF on your first order! Use code: <strong>FIRST10</strong></p>
+        </div>
+        <div class="container">
+            <nav>
+                <a href="./index.html" class="logo">
+                    <span class="logo-text">Brave Presso</span>
+                </a>
+                <ul class="nav-links" id="navLinks">
+                    <li class="mobile-auth-links">
+                        <button class="mobile-nav-btn" id="mobileLoginBtn">
+                            <i class="fas fa-user-circle"></i> <span id="mobileUserBtnLabel">Login</span>
+                        </button>
+                        <button class="mobile-nav-btn" id="mobileProfile" style="display: none;">
+                            <i class="fas fa-user-edit"></i> My Profile
+                        </button>
+                        <button class="mobile-nav-btn" id="mobileWishlist" style="display: none;">
+                            <i class="fas fa-heart"></i> Wishlist
+                        </button>
+                        <button class="mobile-nav-btn" id="mobileTrackOrder">
+                            <i class="fas fa-shipping-fast"></i> Track Order
+                        </button>
+                        <button class="mobile-nav-btn" id="mobileLogout" style="display: none;">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </button>
+                    </li>
+                    <li class="menu-divider" style="height: 1px; background: rgba(198, 166, 100, 0.2); margin: 1rem 0;"></li>
+                    <li><a href="./index.html" class="nav-link active"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="./shop.html" class="nav-link"><i class="fas fa-shopping-bag"></i> Shop</a></li>
+                    <li><a href="./index.html#recipes" class="nav-link"><i class="fas fa-book-open"></i> Recipes</a></li>
+                    <li><a href="./index.html#gifting" class="nav-link"><i class="fas fa-gift"></i> Gifting</a></li>
+                    <li><a href="./about.html" class="nav-link"><i class="fas fa-coffee"></i> Our Story</a></li>
+                    <li><a href="./reviews.html" class="nav-link"><i class="fas fa-star"></i> Reviews</a></li>
+                    <li><a href="./contact.html" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
+                </ul>
+                <div class="nav-right">
+                    <button class="cart-btn" id="searchBtn" aria-label="Search">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <button class="cart-btn" id="cartBtn" aria-label="Shopping Cart">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </button>
+                    <div class="nav-user-dropdown" id="navUserDropdown">
+                        <div class="user-dropdown-btn" id="userMenuBtn" aria-label="User Menu">
+                            <i class="fas fa-user-circle"></i> <span id="userBtnLabel" style="display: none;">Login</span>
+                            <div class="dropdown-menu" id="userDropdownMenu">
+                                <button class="dropdown-item" id="menuLogin" style="display: block;"><i class="fas fa-sign-in-alt"></i> Login / Register</button>
+                                <button class="dropdown-item" id="menuProfile" style="display: none;"><i class="fas fa-user-edit"></i> My Profile</button>
+                                <button class="dropdown-item" id="menuWishlist" style="display: none;"><i class="fas fa-heart"></i> Wishlist</button>
+                                <button class="dropdown-item" id="menuMyOrders" style="display: none;"><i class="fas fa-box"></i> My Orders</button>
+                                <button class="dropdown-item" id="menuTrackOrder"><i class="fas fa-shipping-fast"></i> Track Order</button>
+                                <button class="dropdown-item" id="menuLogout" style="display: none;"><i class="fas fa-sign-out-alt"></i> Logout</button>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
+                        <span></span><span></span><span></span>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ==================== HERO ==================== -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <img src="./lion-logo.png" alt="Brave Presso Lion Logo" class="hero-lion-logo reveal">
+                <span class="hero-tagline reveal">Artisanal Roast • Single Origin</span>
+                <h1 class="reveal">Experience Coffee<br>in its <em>Purest</em> Form</h1>
+                <p class="reveal">Hand-selected beans from the finest Indian estates, roasted to perfection in small batches to preserve the rich, complex flavors of the earth.</p>
+                <div class="hero-btns reveal">
+                    <a href="#shop" class="btn btn-primary">Shop Now</a>
+                    <button class="btn btn-outline" id="startQuizBtn">Find Your Roast</button>
+                    <a href="./about.html" class="btn btn-outline">Our Story</a>
+                </div>
+                <div class="hero-stats reveal">
+                    <div class="stat">
+                        <div class="stat-value"><span class="stat-num" data-target="100">0</span>%</div>
+                        <span class="stat-label">Arabica</span>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value"><span class="stat-num" data-target="24">0</span>hr</div>
+                        <span class="stat-label">Fresh Delivery</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll-indicator">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- ==================== PRODUCT / SHOP ==================== -->
+    <section class="product-section" id="shop">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Our Product</span>
+                <h2>Premium Dark Roast</h2>
+                <p>Carefully roasted to bring out bold flavors of dark chocolate, hazelnut, and berries.</p>
+            </div>
+            <div class="product-grid">
+                <div class="product-image-container reveal">
+                    <div class="freshness-badge">Roasted on Order</div>
+                    <button class="wishlist-btn-abs" id="addToWishlistBtn" title="Add to Wishlist">
+                        <i class="far fa-heart"></i>
+                    </button>
+                    <div class="gallery-main" id="galleryMain">
+                        <div class="gallery-item active" id="view-front">
+                            <img src="./product.png" alt="BRAVE PRESSO Coffee Packet Front View" loading="lazy" draggable="false">
+                        </div>
+                        <div class="gallery-item" id="view-back">
+                            <img src="./product-back.png" alt="BRAVE PRESSO Coffee Packet Back Side with Nutritional Info and 2 Year Shelf Life" loading="lazy" draggable="false">
+                        </div>
+                        <div class="gallery-item" id="view-beans">
+                            <img src="./hero.png" alt="Premium Dark Roasted Coffee Beans Close-up" loading="lazy" draggable="false">
+                        </div>
+                    </div>
+                    <div class="gallery-thumbnails">
+                        <div class="thumb active" data-target="view-front">
+                            <img src="./product.png" alt="Front">
+                        </div>
+                        <div class="thumb" data-target="view-back">
+                            <img src="./product-back.png" alt="Back">
+                        </div>
+                        <div class="thumb" data-target="view-beans">
+                            <img src="./hero.png" alt="Beans">
+                        </div>
+                    </div>
+                </div>
+                <div class="product-details reveal">
+                    <div class="product-badge">Best Seller</div>
+                    <h2>BRAVE PRESSO — Dark Roast</h2>
+                    <p class="price-tag">₹<span id="displayPrice">449</span> <span class="price-unit" id="displayUnit">/ 100g pack</span></p>
+                    
+                    <div class="variant-selector" style="margin: 1.5rem 0;">
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--gold);">Select Pack Size:</label>
+                        <div class="variant-options" style="display: flex; gap: 1rem;">
+                            <label class="variant-option active" style="flex: 1; border: 1px solid var(--gold); padding: 0.8rem; border-radius: 6px; cursor: pointer; text-align: center; transition: 0.3s; background: rgba(198, 166, 100, 0.1);">
+                                <input type="radio" name="pack_size" value="100g" data-price="449" data-name="BRAVE PRESSO — Dark Roast (100g)" checked style="display: none;">
+                                <div style="font-weight: bold; color: var(--gold);">Standard Pack</div>
+                                <div style="font-size: 0.85rem; color: var(--cream);">100g Pouch</div>
+                            </label>
+                            <label class="variant-option" style="flex: 1; border: 1px solid var(--glass-border); padding: 0.8rem; border-radius: 6px; cursor: pointer; text-align: center; transition: 0.3s;">
+                                <input type="radio" name="pack_size" value="24g" data-price="149" data-name="BRAVE PRESSO — Instant Coffee Trial Pack (24g Glass Jar)" style="display: none;">
+                                <div style="font-weight: bold; color: var(--cream);">Instant Coffee</div>
+                                <div style="font-size: 0.85rem; color: var(--cream);">24g Glass Jar</div>
+                            </label>
+                        </div>
+                    </div>
+                    <p class="product-desc">100% Single Origin Arabica, sun-dried and honey processed. Shelf life: 2 years from packaging.</p>
+
+                    <div class="speciality-list">
+                        <div class="speciality-item"><i class="fas fa-check-circle"></i><span>100% Single Origin Arabica</span></div>
+                        <div class="speciality-item"><i class="fas fa-check-circle"></i><span>Sun-Dried & Honey Processed</span></div>
+                        <div class="speciality-item"><i class="fas fa-check-circle"></i><span>Medium-Dark Roast Profile</span></div>
+                        <div class="speciality-item"><i class="fas fa-check-circle"></i><span>Notes: Dark Chocolate, Hazelnut & Berries</span></div>
+                        <div class="speciality-item"><i class="fas fa-check-circle"></i><span>FSSAI Certified • Shelf Life: 2 Years</span></div>
+                    </div>
+
+                    <div class="calculator">
+                        <div class="calc-row">
+                            <span>Quantity (100g packs)</span>
+                            <div class="quantity-control">
+                                <button class="qty-btn" id="minus" aria-label="Decrease Quantity">−</button>
+                                <span id="quantity" class="qty-display">1</span>
+                                <button class="qty-btn" id="plus" aria-label="Increase Quantity">+</button>
+                            </div>
+                        </div>
+                        <div class="calc-row total-row">
+                            <span>Total Price</span>
+                            <span class="total-price">₹<span id="total">449</span></span>
+                        </div>
+                    </div>
+
+                    <!-- Pincode Checker -->
+                    <div class="pincode-checker">
+                        <div class="pincode-label">Check Delivery to Your Pincode</div>
+                        <div class="pincode-input-group">
+                            <input type="text" id="pincodeInput" placeholder="Enter 6-digit Pincode" maxlength="6" pattern="\d{6}">
+                            <button id="checkPincodeBtn">Check</button>
+                        </div>
+                        <div id="pincodeStatus" class="pincode-status"></div>
+                    </div>
+
+                    <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                        <button class="btn btn-primary" id="addToCartBtn" style="flex: 1;">
+                            <i class="fas fa-shopping-bag"></i> Add to Cart
+                        </button>
+                    </div>
+                    <button class="btn btn-whatsapp btn-full" id="orderWhatsApp">
+                        <i class="fab fa-whatsapp"></i> Order via WhatsApp
+                    </button>
+
+                    <!-- Trust Badges -->
+                    <div class="trust-badges-container">
+                        <div class="trust-badge">
+                            <i class="fas fa-shipping-fast"></i>
+                            <span>Free Shipping</span>
+                        </div>
+                        <div class="trust-badge">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Secure Payment</span>
+                        </div>
+                        <div class="trust-badge">
+                            <i class="fas fa-check-double"></i>
+                            <span>100% Arabica</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CORPORATE GIFTING ==================== -->
+    <section class="gifting-section" id="gifting">
+        <div class="container">
+            <div class="gifting-grid">
+                <div class="gifting-image reveal">
+                    <img src="hero.png" alt="Corporate Gifting Coffee Sets" style="border-radius: 12px; box-shadow: var(--shadow);">
+                </div>
+                <div class="gifting-content reveal">
+                    <span class="section-tag">Bulk & Events</span>
+                    <h2>Corporate Gifting</h2>
+                    <p>Elevate your corporate gifting with the aroma of premium, freshly roasted coffee. We offer customized packaging and curated gift sets for your employees, clients, and special events.</p>
+                    
+                    <div class="gifting-features">
+                        <div class="gifting-feat-item">
+                            <i class="fas fa-box-open"></i>
+                            <div>
+                                <h4>Custom Packaging</h4>
+                                <p>Add your company logo and personalized notes to every pack.</p>
+                            </div>
+                        </div>
+                        <div class="gifting-feat-item">
+                            <i class="fas fa-percent"></i>
+                            <div>
+                                <h4>Bulk Pricing</h4>
+                                <p>Exclusive discounts for orders above 25 units.</p>
+                            </div>
+                        </div>
+                        <div class="gifting-feat-item">
+                            <i class="fas fa-truck-ramp-box"></i>
+                            <div>
+                                <h4>Direct Shipping</h4>
+                                <p>We can ship directly to individual addresses across India.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="https://wa.me/919821846822?text=Hi! I am interested in Corporate Gifting options." target="_blank" class="btn btn-outline">
+                        <i class="fab fa-whatsapp"></i> Inquire for Bulk
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FEATURES / OUR STORY ==================== -->
+    <section class="features-section" id="about">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Why Choose Us</span>
+                <h2>Our Story</h2>
+                <p>Every cup of BRAVE PRESSO tells a story of passion, precision, and sustainability.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><i class="fas fa-seedling"></i></div>
+                    <h3>Ethically Sourced</h3>
+                    <p>We work directly with farmers in Coorg, Chikmagalur & Wayanad ensuring fair trade and sustainable growing practices.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><i class="fas fa-fire"></i></div>
+                    <h3>Micro-Roasted</h3>
+                    <p>Roasted in small 5kg batches using artisan drum roasters to ensure maximum flavor consistency and freshness.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><i class="fas fa-truck-fast"></i></div>
+                    <h3>Fresh Delivery</h3>
+                    <p>Roasted on order and shipped within 24 hours to preserve the aromatic oils. Free delivery across India.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><i class="fas fa-award"></i></div>
+                    <h3>FSSAI Certified</h3>
+                    <p>All our products are FSSAI certified with a shelf life of 2 years ensuring quality and safety standards.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><i class="fas fa-leaf"></i></div>
+                    <h3>100% Natural</h3>
+                    <p>No artificial flavors, preservatives, or chemicals. Just pure, single origin Arabica coffee beans.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                    <h3>Small Batch Love</h3>
+                    <p>Each bag is hand-packed with love and a roast date stamp so you always know you're getting the freshest brew.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== COFFEE RECIPES ==================== -->
+    <section class="recipes-section" id="recipes">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Brew Like a Pro</span>
+                <h2>Coffee Recipes</h2>
+                <p>Master the art of brewing with our curated recipes for the perfect cup.</p>
+            </div>
+            <div class="recipes-grid">
+                <div class="recipe-card reveal">
+                    <div class="recipe-img">
+                        <img src="hero.png" alt="Classic French Press" loading="lazy">
+                        <div class="recipe-time"><i class="far fa-clock"></i> 4 Mins</div>
+                    </div>
+                    <div class="recipe-content">
+                        <h3>Classic French Press</h3>
+                        <p>A full-bodied, rich coffee that preserves all the natural oils.</p>
+                        <ul class="recipe-steps">
+                            <li>Coarse grind 20g coffee.</li>
+                            <li>Add 300ml hot water (92°C).</li>
+                            <li>Steep for 4 minutes.</li>
+                            <li>Press slowly and enjoy.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="recipe-card reveal">
+                    <div class="recipe-img">
+                        <img src="hero.png" alt="Smooth Cold Brew">
+                        <div class="recipe-time"><i class="far fa-clock"></i> 12 Hours</div>
+                    </div>
+                    <div class="recipe-content">
+                        <h3>Smooth Cold Brew</h3>
+                        <p>Low acidity and naturally sweet, perfect for hot summer days.</p>
+                        <ul class="recipe-steps">
+                            <li>Extra coarse grind 100g coffee.</li>
+                            <li>Add 1L cold filtered water.</li>
+                            <li>Steep in fridge for 12-15 hours.</li>
+                            <li>Strain and serve over ice.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="recipe-card reveal">
+                    <div class="recipe-img">
+                        <img src="hero.png" alt="Pro Pour Over">
+                        <div class="recipe-time"><i class="far fa-clock"></i> 3 Mins</div>
+                    </div>
+                    <div class="recipe-content">
+                        <h3>Pro Pour Over (V60)</h3>
+                        <p>Clean and complex cup that highlights the delicate floral notes.</p>
+                        <ul class="recipe-steps">
+                            <li>Medium-fine grind 15g coffee.</li>
+                            <li>Wet the filter paper first.</li>
+                            <li>Pour 250ml water in circular motion.</li>
+                            <li>Total brew time: 2:30 - 3:00 mins.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== BREW CALCULATOR ==================== -->
+    <section class="brew-calculator-section" id="calculator">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Precision Brewing</span>
+                <h2>Brewing Calculator</h2>
+                <p>Calculate the perfect coffee-to-water ratio for your preferred strength.</p>
+            </div>
+            <div class="brew-calc-container reveal">
+                <div class="brew-calc-card">
+                    <div class="calc-inputs">
+                        <div class="input-group">
+                            <label><i class="fas fa-coffee"></i> Choose Strength</label>
+                            <div class="ratio-options">
+                                <button class="ratio-btn active" data-ratio="15" title="1:15 ratio">Strong</button>
+                                <button class="ratio-btn" data-ratio="17" title="1:17 ratio">Balanced</button>
+                                <button class="ratio-btn" data-ratio="18" title="1:18 ratio">Mild</button>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label><i class="fas fa-mug-hot"></i> Number of Cups</label>
+                            <div class="cups-selector">
+                                <button class="cup-btn dec-cups"><i class="fas fa-minus"></i></button>
+                                <input type="number" id="brewCups" value="2" min="1" max="10">
+                                <button class="cup-btn inc-cups"><i class="fas fa-plus"></i></button>
+                            </div>
+                            <span class="input-hint">1 cup ≈ 250ml</span>
+                        </div>
+                    </div>
+                    <div class="calc-results">
+                        <div class="result-item">
+                            <span class="result-label">Coffee Grounds</span>
+                            <div class="result-value"><span id="coffeeGrams">33</span><small>g</small></div>
+                            <p class="result-desc">Freshly ground BRAVE PRESSO</p>
+                        </div>
+                        <div class="result-divider"></div>
+                        <div class="result-item">
+                            <span class="result-label">Hot Water</span>
+                            <div class="result-value"><span id="waterMl">500</span><small>ml</small></div>
+                            <p class="result-desc">Off-boil water (92-96°C)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="brew-tips">
+                    <h3><i class="fas fa-lightbulb"></i> Pro Tips</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Use filtered water for the best flavor clarity.</li>
+                        <li><i class="fas fa-check"></i> Grind your beans just before brewing to preserve aroma.</li>
+                        <li><i class="fas fa-check"></i> Wet your paper filter to remove any papery taste.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== REVIEWS / TESTIMONIALS ==================== -->
+    <section class="reviews-section" id="reviews">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Testimonials</span>
+                <h2>What Our Customers Say</h2>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card reveal">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="review-text">"The best coffee I've ever tasted! The dark chocolate and hazelnut notes are absolutely divine. I've been ordering every month for the last 6 months."</p>
+                    <div class="reviewer">
+                        <div class="reviewer-avatar">RK</div>
+                        <div><strong>Rajesh Kumar</strong><span>Bangalore</span></div>
+                    </div>
+                </div>
+                <div class="review-card reveal">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="review-text">"BRAVE PRESSO has completely changed my morning ritual. The aroma when you open the pack is incredible. Premium quality at a very fair price."</p>
+                    <div class="reviewer">
+                        <div class="reviewer-avatar">PS</div>
+                        <div><strong>Priya Sharma</strong><span>Mumbai</span></div>
+                    </div>
+                </div>
+                <div class="review-card reveal">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                    <p class="review-text">"As a café owner, I always look for the best beans. BRAVE PRESSO delivers consistent quality that my customers love. Highly recommended for businesses!"</p>
+                    <div class="reviewer">
+                        <div class="reviewer-avatar">AM</div>
+                        <div><strong>Arjun Menon</strong><span>Kochi</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== BRAND IDENTITY ==================== -->
+
+    <!-- ==================== CONTACT ==================== -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Get in Touch</span>
+                <h2>Contact Us</h2>
+                <p>Have questions about our roasting process, bulk orders, or partnerships? We'd love to hear from you.</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info reveal">
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <div>
+                            <strong>Email Us</strong>
+                            <a href="mailto:hello@bravepresso.com">hello@bravepresso.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                        <div>
+                            <strong>Call Us</strong>
+                            <a href="tel:+919821846822">+91 98218 46822</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+                        <div>
+                            <strong>WhatsApp</strong>
+                            <a href="https://wa.me/919821846822" target="_blank" rel="noopener">+91 98218 46822</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-location-dot"></i></div>
+                        <div>
+                            <strong>Visit Us</strong>
+                            <span>Saket, New Delhi, India</span>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-clock"></i></div>
+                        <div>
+                            <strong>Working Hours</strong>
+                            <span>Mon–Sat: 9 AM – 7 PM</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal">
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-group">
+                            <label for="fullName">Full Name *</label>
+                            <input type="text" id="fullName" name="fullName" placeholder="Enter your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject *</label>
+                            <select id="subject" name="subject" required>
+                                <option value="" disabled selected>Select a subject</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="bulk">Bulk Order</option>
+                                <option value="partnership">Partnership</option>
+                                <option value="complaint">Complaint</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message *</label>
+                            <textarea id="message" name="message" rows="5" placeholder="How can we help you today?" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full" id="submitBtn">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer id="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3 class="logo" style="margin-bottom: 1rem;">BRAVE PRESSO</h3>
+                    <p>Premium single origin coffee beans, ethically sourced and micro-roasted in India.</p>
+                    <div class="footer-socials">
+                        <a href="https://www.instagram.com/jatin._kaushik?igsh=MWdna2h5cGZmZW1kbw==" aria-label="Instagram" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Facebook" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="X" target="_blank" rel="noopener">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.055-4.425 5.055H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z"/>
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="YouTube" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="about.html">Our Story</a></li>
+                        <li><a href="reviews.html">Reviews</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms & Conditions</a></li>
+                        <li><a href="refund.html">Refund Policy</a></li>
+                        <li><a href="shipping.html">Shipping Info</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>Stay Updated</h4>
+                    <p>Subscribe for exclusive offers and new blend updates.</p>
+                    <form id="newsletterForm" class="newsletter-form">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit" aria-label="Subscribe"><i class="fas fa-arrow-right"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 BRAVE PRESSO. All rights reserved.</p>
+                <p>Made with <i class="fas fa-heart" style="color: var(--gold);"></i> in India</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== CART SIDEBAR ==================== -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <aside class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3><i class="fas fa-shopping-bag"></i> Your Cart</h3>
+            <button class="cart-close" id="cartClose" aria-label="Close Cart">&times;</button>
+        </div>
+        <div class="cart-body" id="cartBody">
+            <div class="cart-empty" id="cartEmpty">
+                <i class="fas fa-shopping-basket"></i>
+                <p>Your cart is empty</p>
+                <a href="#shop" class="btn btn-outline btn-sm" id="startShopping">Start Shopping</a>
+            </div>
+            <div class="cart-items" id="cartItems" style="display:none;"></div>
+        </div>
+        <div class="cart-footer" id="cartFooter" style="display:none;">
+            <!-- Coupon Section -->
+            <div class="cart-coupon-section" style="margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid rgba(198, 166, 100, 0.1);">
+                <div class="input-group" style="display: flex; gap: 8px;">
+                    <input type="text" id="couponInput" placeholder="Enter FIRST10" style="flex: 1; background: rgba(255,255,255,0.03); border: 1px solid rgba(198, 166, 100, 0.2); border-radius: 8px; padding: 0.8rem; color: var(--cream); font-size: 0.9rem; text-transform: uppercase;">
+                    <button class="btn btn-outline btn-sm" id="applyCouponBtn" style="padding: 0 1.2rem; min-width: 80px;">Apply</button>
+                </div>
+                <p id="couponMessage" style="font-size: 0.75rem; margin-top: 0.5rem; display: none;"></p>
+            </div>
+            
+            <div class="cart-summary" style="margin-bottom: 1.5rem;">
+                <div class="summary-row" style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; color: var(--latte); font-size: 0.9rem;">
+                    <span>Subtotal</span>
+                    <span id="cartSubtotal">₹0</span>
+                </div>
+                <div class="summary-row" id="discountRow" style="display: none; justify-content: space-between; margin-bottom: 0.5rem; color: #27ae60; font-size: 0.9rem; font-weight: 600;">
+                    <span>Discount (10%)</span>
+                    <span id="cartDiscount">-₹0</span>
+                </div>
+                <div class="cart-total" style="border-top: none; padding-top: 0;">
+                    <span>Grand Total:</span>
+                    <span class="cart-total-price" id="cartTotal">₹0</span>
+                </div>
+            </div>
+            <button class="btn btn-primary btn-full" id="checkoutBtn">
+                Checkout Securely
+            </button>
+        </div>
+    </aside>
+
+    <!-- ==================== COFFEE QUIZ MODAL ==================== -->
+    <div class="user-modal" id="quizModal">
+        <div class="user-modal-content quiz-modal-content">
+            <button class="modal-close" id="quizClose">&times;</button>
+            <div id="quizStart">
+                <span class="section-tag">Interactive Quiz</span>
+                <h2>Find Your Perfect Match</h2>
+                <p>Answer 3 quick questions and we'll recommend the ideal BRAVE PRESSO roast for your taste.</p>
+                <button class="btn btn-primary" id="beginQuiz">Start Quiz</button>
+            </div>
+            <div id="quizQuestion" style="display: none;">
+                <div class="quiz-progress-bar"><div class="quiz-progress"></div></div>
+                <h3 id="questionText">Question?</h3>
+                <div class="quiz-options" id="questionOptions">
+                    <!-- Options injected via JS -->
+                </div>
+            </div>
+            <div id="quizResult" style="display: none;">
+                <span class="section-tag">Your Match</span>
+                <h2 id="resultTitle">Dark Roast</h2>
+                <p id="resultDesc">Based on your preferences, this is the perfect brew for you.</p>
+                <div class="result-product-card">
+                    <img id="resultImg" src="./product.png" alt="Recommended Product">
+                    <div class="result-product-info">
+                        <h4 id="resultProductName">BRAVE PRESSO — Dark Roast</h4>
+                        <span id="resultPrice">₹449</span>
+                    </div>
+                </div>
+                <button class="btn btn-primary btn-full" id="quizAddToCart">Add Match to Cart</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== TOAST ==================== -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- ==================== BACK TO TOP ==================== -->
+    <a href="https://wa.me/919821846822" class="whatsapp-float" target="_blank" aria-label="Chat with us on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <svg class="progress-ring" width="50" height="50">
+            <circle class="progress-ring__circle" stroke="var(--gold)" stroke-width="3" fill="transparent" r="22" cx="25" cy="25"/>
+        </svg>
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Newsletter Popup -->
+    <div class="newsletter-popup-overlay" id="newsletterOverlay"></div>
+    <div class="newsletter-popup" id="newsletterPopup">
+        <button class="close-popup" id="closeNewsletter">&times;</button>
+        <div class="popup-content">
+            <div class="popup-image">
+                <img src="./lion-logo.png" alt="Brave Presso Logo">
+            </div>
+            <div class="popup-text">
+                <h3>Join the Coffee Club</h3>
+                <p>Subscribe to get <strong>10% OFF</strong> on your first order and stay updated with new roasts!</p>
+                <form id="popupNewsletterForm">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit" class="btn btn-primary btn-full">Get My Discount</button>
+                </form>
+                <p class="popup-note">No spam, just fresh coffee news.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>

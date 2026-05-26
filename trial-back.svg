@@ -1,0 +1,195 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 700" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <radialGradient id="bgGrad" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#e0e0e0"/>
+    </radialGradient>
+
+    <!-- Red Lid Gradients -->
+    <linearGradient id="redLid" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#990000"/>
+      <stop offset="25%" stop-color="#d32f2f"/>
+      <stop offset="50%" stop-color="#ff5252"/>
+      <stop offset="75%" stop-color="#d32f2f"/>
+      <stop offset="100%" stop-color="#990000"/>
+    </linearGradient>
+
+    <!-- Label Gradients -->
+    <linearGradient id="labelBg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#7f0000"/>
+      <stop offset="30%" stop-color="#b71c1c"/>
+      <stop offset="70%" stop-color="#d32f2f"/>
+      <stop offset="100%" stop-color="#7f0000"/>
+    </linearGradient>
+
+    <!-- Glass Bottle Shading -->
+    <linearGradient id="glassShade" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#000000" stop-opacity="0.7"/>
+      <stop offset="10%" stop-color="#3e2723" stop-opacity="0.4"/>
+      <stop offset="25%" stop-color="#ffffff" stop-opacity="0.15"/>
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="75%" stop-color="#ffffff" stop-opacity="0.1"/>
+      <stop offset="90%" stop-color="#3e2723" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.7"/>
+    </linearGradient>
+
+    <!-- Coffee Powder Texture Pattern -->
+    <pattern id="coffeePowder" width="30" height="30" patternUnits="userSpaceOnUse">
+      <rect width="30" height="30" fill="#2d1508"/>
+      <circle cx="3" cy="5" r="1.5" fill="#4e2711"/>
+      <circle cx="12" cy="7" r="1.2" fill="#1b0a03"/>
+      <circle cx="22" cy="12" r="1.8" fill="#5c3116"/>
+      <circle cx="7" cy="18" r="1" fill="#1b0a03"/>
+      <circle cx="15" cy="22" r="2" fill="#4e2711"/>
+      <circle cx="27" cy="25" r="1.3" fill="#3d1d0c"/>
+      <circle cx="5" cy="28" r="1.7" fill="#5c3116"/>
+      <circle cx="18" cy="15" r="1" fill="#1b0a03"/>
+    </pattern>
+
+    <!-- Specular Highlights -->
+    <linearGradient id="highlightGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="10%" stop-color="#ffffff" stop-opacity="0.4"/>
+      <stop offset="20%" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="85%" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="92%" stop-color="#ffffff" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Drop Shadows -->
+    <filter id="jarShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="15" flood-color="#000000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="600" height="700" fill="url(#bgGrad)"/>
+
+  <!-- Shadow under the bottle -->
+  <ellipse cx="300" cy="595" rx="150" ry="20" fill="#000000" opacity="0.3" filter="blur(10px)"/>
+
+  <!-- ==================== BOTTLE GROUP ==================== -->
+  <g filter="url(#jarShadow)">
+    
+    <!-- Outer Glass Bottle Shape Base -->
+    <path d="M 215,225 
+             C 215,225 210,235 208,245 
+             L 205,330 
+             C 205,330 203,380 208,420 
+             C 213,460 216,540 220,560 
+             C 225,580 240,590 300,590 
+             C 360,590 375,580 380,560 
+             C 384,540 387,460 392,420 
+             C 397,380 395,330 395,330 
+             L 392,245 
+             C 390,235 385,225 385,225 
+             Z" 
+          fill="url(#coffeePowder)"/>
+
+    <!-- Darker Shading -->
+    <path d="M 215,225 C 215,225 210,235 208,245 L 205,330 C 205,330 203,380 208,420 C 213,460 216,540 220,560 C 225,580 240,590 300,590 C 360,590 375,580 380,560 C 384,540 387,460 392,420 C 397,380 395,330 395,330 L 392,245 C 390,235 385,225 385,225 Z" 
+          fill="url(#glassShade)" opacity="0.85"/>
+
+    <!-- Bottom thick glass base highlight -->
+    <path d="M 220,560 C 225,580 240,590 300,590 C 360,590 375,580 380,560 C 375,570 360,578 300,578 C 240,578 225,570 220,560 Z" fill="#ffffff" opacity="0.25"/>
+
+    <!-- ==================== PREMIUM RED BACK LABEL ==================== -->
+    <g>
+      <!-- Label Background -->
+      <path d="M 206,310 
+               C 206,310 204,350 206,390 
+               C 208,430 211,460 213,475 
+               L 387,475 
+               C 389,460 392,430 394,390 
+               C 396,350 394,310 394,310 
+               Z" 
+            fill="url(#labelBg)"/>
+
+      <!-- Label Details / Info -->
+      <!-- Title -->
+      <text x="300" y="330" font-family="'Inter', sans-serif" font-size="9" font-weight="800" fill="#ffffff" text-anchor="middle" letter-spacing="1.2">NUTRITIONAL DETAILS</text>
+      <text x="300" y="339" font-family="'Inter', sans-serif" font-size="6.5" fill="#ffcdd2" text-anchor="middle">Typical values per 100g serving</text>
+      
+      <!-- Table Headers -->
+      <line x1="218" y1="346" x2="382" y2="346" stroke="#ff8a80" stroke-width="0.5" opacity="0.8"/>
+      <text x="222" y="354" font-family="'Inter', sans-serif" font-size="7" font-weight="700" fill="#ffffff">Parameter</text>
+      <text x="378" y="354" font-family="'Inter', sans-serif" font-size="7" font-weight="700" fill="#ffffff" text-anchor="end">Value</text>
+      <line x1="218" y1="358" x2="382" y2="358" stroke="#ff8a80" stroke-width="0.5" opacity="0.8"/>
+
+      <!-- Row 1: Energy -->
+      <text x="222" y="367" font-family="'Inter', sans-serif" font-size="7" fill="#ffcdd2">Energy (kcal)</text>
+      <text x="378" y="367" font-family="'Inter', sans-serif" font-size="7" fill="#ffffff" text-anchor="end">358</text>
+      <line x1="218" y1="371" x2="382" y2="371" stroke="#ff8a80" stroke-width="0.3" opacity="0.4"/>
+
+      <!-- Row 2: Protein -->
+      <text x="222" y="380" font-family="'Inter', sans-serif" font-size="7" fill="#ffcdd2">Protein (g)</text>
+      <text x="378" y="380" font-family="'Inter', sans-serif" font-size="7" fill="#ffffff" text-anchor="end">19.5</text>
+      <line x1="218" y1="384" x2="382" y2="384" stroke="#ff8a80" stroke-width="0.3" opacity="0.4"/>
+
+      <!-- Row 3: Carbohydrates -->
+      <text x="222" y="393" font-family="'Inter', sans-serif" font-size="7" fill="#ffcdd2">Carbohydrates (g)</text>
+      <text x="378" y="393" font-family="'Inter', sans-serif" font-size="7" fill="#ffffff" text-anchor="end">65.0</text>
+      <line x1="218" y1="397" x2="382" y2="397" stroke="#ff8a80" stroke-width="0.5" opacity="0.8"/>
+
+      <!-- Ingredients & Directions -->
+      <text x="222" y="410" font-family="'Inter', sans-serif" font-size="7.5" font-weight="800" fill="#ff8a80">INGREDIENTS:</text>
+      <text x="222" y="419" font-family="'Inter', sans-serif" font-size="6.5" fill="#ffffff">100% Pure Premium Arabica Soluble Coffee Powder</text>
+
+      <text x="222" y="432" font-family="'Inter', sans-serif" font-size="7.5" font-weight="800" fill="#ff8a80">DIRECTIONS:</text>
+      <text x="222" y="441" font-family="'Inter', sans-serif" font-size="6.5" fill="#ffffff">Add 1 spoon of coffee granules in hot milk/water.</text>
+      
+      <!-- Veg Emblem & fssai -->
+      <rect x="220" y="452" width="10" height="10" fill="#ffffff" stroke="#25D366" stroke-width="1" rx="0.5"/>
+      <circle cx="225" cy="457" r="3" fill="#25D366"/>
+
+      <!-- fssai -->
+      <rect x="240" y="452" width="40" height="10" fill="none" stroke="#ffffff" stroke-width="0.5" rx="1" opacity="0.8"/>
+      <text x="260" y="460" font-family="'Inter', sans-serif" font-size="6.5" font-weight="800" fill="#ffffff" text-anchor="middle">fssai</text>
+      <text x="310" y="460" font-family="'Inter', sans-serif" font-size="5" fill="#ffcdd2" text-anchor="middle">Lic. No. 13324999000123</text>
+
+      <!-- Barcode simulation -->
+      <g opacity="0.8" transform="translate(330, 449)">
+        <rect x="0" y="0" width="1.5" height="9" fill="#ffffff"/>
+        <rect x="2" y="0" width="0.8" height="9" fill="#ffffff"/>
+        <rect x="3.5" y="0" width="2" height="9" fill="#ffffff"/>
+        <rect x="6.5" y="0" width="0.8" height="9" fill="#ffffff"/>
+        <rect x="8" y="0" width="1.5" height="9" fill="#ffffff"/>
+        <rect x="10.5" y="0" width="0.8" height="9" fill="#ffffff"/>
+        <rect x="12" y="0" width="2" height="9" fill="#ffffff"/>
+        <rect x="15" y="0" width="0.8" height="9" fill="#ffffff"/>
+        <rect x="16.5" y="0" width="1.5" height="9" fill="#ffffff"/>
+        <rect x="19" y="0" width="2.5" height="9" fill="#ffffff"/>
+        <rect x="22.5" y="0" width="0.8" height="9" fill="#ffffff"/>
+        <rect x="24" y="0" width="1.5" height="9" fill="#ffffff"/>
+        <text x="12" y="14" font-family="'Inter', sans-serif" font-size="4" fill="#ffcdd2" text-anchor="middle">8901030758064</text>
+      </g>
+    </g>
+
+    <!-- Glass Reflections over the label and bottle body -->
+    <path d="M 215,225 C 215,225 210,235 208,245 L 205,330 C 205,330 203,380 208,420 C 213,460 216,540 220,560 C 225,580 240,590 300,590 C 360,590 375,580 380,560 C 384,540 387,460 392,420 C 397,380 395,330 395,330 L 392,245 C 390,235 385,225 385,225 Z" 
+          fill="url(#highlightGrad)"/>
+
+    <!-- High-intensity vertical reflection reflection line -->
+    <path d="M 218,250 L 213,540" stroke="#ffffff" stroke-width="4" stroke-linecap="round" opacity="0.2"/>
+    <path d="M 224,250 L 218,540" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" opacity="0.1"/>
+
+    <!-- ==================== RED LID ==================== -->
+    <g>
+      <ellipse cx="300" cy="225" rx="85" ry="12" fill="#1b0a03" opacity="0.5"/>
+      <path d="M 210,225
+               C 210,225 202,185 202,150
+               C 202,120 220,110 300,110
+               C 380,110 398,120 398,150
+               C 398,185 390,225 390,225
+               Z" 
+            fill="url(#redLid)"/>
+      <ellipse cx="300" cy="113" rx="96" ry="10" fill="#ff5252" opacity="0.4" />
+      <ellipse cx="300" cy="110" rx="98" ry="9" fill="#ff7961" opacity="0.2" />
+      <path d="M 210,225 C 240,238 360,238 390,225 C 360,228 240,228 210,225 Z" fill="#000000" opacity="0.6"/>
+      <path d="M 214,222 C 208,190 208,155 214,124" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" opacity="0.25" filter="blur(1px)"/>
+      <ellipse cx="300" cy="125" rx="40" ry="8" fill="#ffffff" opacity="0.15" filter="blur(2px)"/>
+    </g>
+
+  </g>
+</svg>
