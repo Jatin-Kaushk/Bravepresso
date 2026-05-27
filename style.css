@@ -1122,17 +1122,32 @@ header {
     margin: 0 auto;
 }
 
-.hero-lion-logo {
-    width: 450px;
-    height: auto;
-    object-fit: contain;
-    padding: 0;
-    margin: 0 auto -20px auto;
-    display: block;
-    filter: none; /* Removed drop-shadow/glow effect */
-    animation: none; /* Removed pulse animation for a plain look */
-    transform: translateY(0);
-    transition: opacity 1.2s cubic-bezier(0.23, 1, 0.32, 1);
+.logo-wrapper {
+    padding: 0 !important;
+    margin: 0 auto -40px auto !important; /* Negative margin to pull content up */
+    min-height: unset !important;
+    height: 300px !important; /* Fixed height for cropping */
+    width: 300px !important;  /* Fixed width for cropping */
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.logo-wrapper img {
+    width: 160% !important; /* Zooming in to hide the empty space in the file */
+    height: 160% !important;
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    object-fit: contain !important;
+    flex-shrink: 0;
+}
+
+/* Cleanup old styles */
+.logo-container, .hero-lion-logo {
+    display: none !important;
 }
 
 /* Override reveal for logo to prevent "jumping up" */
@@ -1759,7 +1774,8 @@ header {
     .hero h1 { font-size: 3.2rem; margin-bottom: 1.5rem; }
     .hero p { margin: 0 auto 2.5rem; font-size: 1.05rem; }
     .hero-tagline { justify-content: center; gap: 10px; font-size: 0.75rem; letter-spacing: 4px; }
-    .hero-lion-logo { width: 320px; margin: 0 auto -10px auto; display: block; transform: translateY(0) !important; }
+    .logo-wrapper { width: 220px !important; height: 220px !important; margin: 0 auto -20px auto !important; }
+    .logo-wrapper img { width: 170% !important; height: 170% !important; }
     .hero-tagline::before { width: 20px; }
     .hero-btns { justify-content: center; gap: 1rem; }
     .hero-stats { justify-content: center; gap: 2.5rem; }

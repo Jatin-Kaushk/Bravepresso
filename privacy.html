@@ -3,12 +3,21 @@
 <head>
     <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy — BRAVE PRESSO</title>
+    <meta name="description" content="Your privacy is important to us. Read BRAVE PRESSO's privacy policy to understand how we handle your data.">
+    <meta property="og:title" content="Privacy Policy — BRAVE PRESSO">
+    <meta property="og:description" content="Your privacy is important to us. Read BRAVE PRESSO's privacy policy to understand how we handle your data.">
+    <meta property="og:image" content="./product.png">
+    <meta property="og:type" content="website">
     <link rel="icon" type="image/png" href="./lion-logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
     <header id="header">
+        <!-- ==================== ANNOUNCEMENT BAR ==================== -->
+        <div class="announcement-bar">
+            <p>🎉 Special Offer: Get 10% OFF on your first order! Use code: <strong>FIRST10</strong></p>
+        </div>
         <div class="container">
             <nav>
                   <a href="./index.html" class="logo">
@@ -53,7 +62,8 @@
                         <div class="user-dropdown-btn" id="userMenuBtn" aria-label="User Menu">
                             <i class="fas fa-user-circle"></i> <span id="userBtnLabel" style="display: none;">Login</span>
                             <div class="dropdown-menu" id="userDropdownMenu">
-                                <button class="dropdown-item" id="menuLogin"><i class="fas fa-sign-in-alt"></i> Login / Register</button>
+                                <button class="dropdown-item" id="menuLogin" style="display: block;"><i class="fas fa-sign-in-alt"></i> Login / Register</button>
+                                <button class="dropdown-item" id="menuProfile" style="display: none;"><i class="fas fa-user-edit"></i> My Profile</button>
                                 <button class="dropdown-item" id="menuWishlist" style="display: none;"><i class="fas fa-heart"></i> Wishlist</button>
                                 <button class="dropdown-item" id="menuMyOrders" style="display: none;"><i class="fas fa-box"></i> My Orders</button>
                                 <button class="dropdown-item" id="menuTrackOrder"><i class="fas fa-shipping-fast"></i> Track Order</button>
@@ -115,6 +125,15 @@
         <div class="cart-body" id="cartBody"><div class="cart-empty" id="cartEmpty"><i class="fas fa-shopping-basket"></i><p>Your cart is empty</p><a href="shop.html" class="btn btn-outline btn-sm" id="startShopping">Start Shopping</a></div><div class="cart-items" id="cartItems" style="display:none;"></div></div>
         <div class="cart-footer" id="cartFooter" style="display:none;"><div class="cart-total"><span>Total:</span><span class="cart-total-price" id="cartTotal">₹0</span></div><button class="btn btn-primary btn-full" id="checkoutBtn">Checkout Securely</button></div>
     </aside>
-    <div class="toast-container" id="toastContainer"></div><button class="back-to-top" id="backToTop"><i class="fas fa-chevron-up"></i></button>
+    <div class="toast-container" id="toastContainer"></div><a href="https://wa.me/919821846822" class="whatsapp-float" target="_blank" aria-label="Chat with us on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <svg class="progress-ring" width="50" height="50">
+            <circle class="progress-ring__circle" stroke="var(--gold)" stroke-width="3" fill="transparent" r="22" cx="25" cy="25"/>
+        </svg>
+        <i class="fas fa-chevron-up"></i>
+    </button>
     <script src="script.js"></script>
 </body></html>
