@@ -47,6 +47,31 @@ body {
     line-height: 1.7;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+}
+
+body.page-loaded {
+    opacity: 1;
+}
+
+/* Scroll Progress Indicator */
+.scroll-progress-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    z-index: 1000001;
+    pointer-events: none;
+}
+
+.scroll-progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(to right, var(--gold-dark), var(--gold));
+    box-shadow: 0 0 10px rgba(198, 166, 100, 0.5);
+    transition: width 0.1s ease-out;
 }
 
 h1, h2, h3 { font-family: 'Playfair Display', serif; line-height: 1.2; }
@@ -1227,8 +1252,29 @@ header {
     display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 1rem 2rem;
     font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem;
     border: none; cursor: pointer; border-radius: 6px; transition: var(--transition);
+    position: relative;
+    overflow: hidden;
 }
+
 .btn-primary { background: var(--gold); color: var(--espresso); }
+
+.btn-primary::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -60%;
+    width: 20%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.4);
+    transform: rotate(30deg);
+    transition: none;
+}
+
+.btn-primary:hover::after {
+    left: 140%;
+    transition: left 0.7s ease-in-out;
+}
+
 .btn-primary:hover { background: var(--white); transform: translateY(-4px) scale(1.05); box-shadow: 0 12px 30px rgba(198, 166, 100, 0.4); }
 .btn-outline { background: transparent; border: 1px solid var(--gold); color: var(--gold); }
 .btn-outline:hover { background: var(--gold); color: var(--espresso); transform: translateY(-3px); }
@@ -1454,6 +1500,12 @@ header {
     gap: 2rem; 
 }
 
+.feature-card:hover, .recipe-card:hover, .review-card:hover, .info-card:hover { 
+    transform: translateY(-8px); 
+    border-color: rgba(198, 166, 100, 0.4); 
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5), 0 0 20px rgba(198, 166, 100, 0.1); 
+}
+
 .feature-card {
     background: var(--glass); 
     padding: 2.5rem 2rem; 
@@ -1464,8 +1516,8 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
+    will-change: transform, box-shadow;
 }
-.feature-card:hover { transform: translateY(-5px); border-color: rgba(198, 166, 100, 0.3); box-shadow: 0 15px 30px rgba(0,0,0,0.3); }
 .feature-icon { width: 60px; height: 60px; margin: 0 auto 1.5rem; background: rgba(198, 166, 100, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
 .feature-icon i { font-size: 1.4rem; color: var(--gold); }
 .feature-card h3 { font-size: 1.3rem; margin-bottom: 0.8rem; }
@@ -1474,8 +1526,7 @@ header {
 /* ==================== RECIPES ==================== */
 .recipes-section { padding: 6rem 0; background: var(--roast); }
 .recipes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
-.recipe-card { background: var(--glass); border-radius: 12px; overflow: hidden; border: 1px solid var(--glass-border); transition: var(--transition); }
-.recipe-card:hover { transform: translateY(-5px); border-color: rgba(198, 166, 100, 0.3); }
+.recipe-card { background: var(--glass); border-radius: 12px; overflow: hidden; border: 1px solid var(--glass-border); transition: var(--transition); will-change: transform, box-shadow; }
 .recipe-img { position: relative; height: 200px; }
 .recipe-img img { width: 100%; height: 100%; object-fit: cover; }
 .recipe-time { position: absolute; top: 1rem; right: 1rem; background: rgba(26, 15, 10, 0.8); color: var(--gold); padding: 0.4rem 0.8rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600; backdrop-filter: blur(4px); }
@@ -1492,8 +1543,8 @@ header {
 .review-card {
     background: var(--glass); padding: 2rem; border-radius: 12px;
     border: 1px solid var(--glass-border); transition: var(--transition);
+    will-change: transform, box-shadow;
 }
-.review-card:hover { border-color: rgba(198, 166, 100, 0.2); }
 .stars { color: var(--gold); margin-bottom: 1rem; font-size: 0.9rem; display: flex; gap: 0.2rem; }
 .review-text { color: var(--cream); font-size: 0.95rem; font-style: italic; margin-bottom: 1.5rem; line-height: 1.7; }
 .reviewer { display: flex; align-items: center; gap: 1rem; }

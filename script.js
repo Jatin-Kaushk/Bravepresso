@@ -1,4 +1,23 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Add page-loaded class for fade-in effect
+    document.body.classList.add('page-loaded');
+
+    // Inject Scroll Progress Bar
+    const scrollProgressContainer = document.createElement('div');
+    scrollProgressContainer.className = 'scroll-progress-container';
+    const scrollProgressBar = document.createElement('div');
+    scrollProgressBar.className = 'scroll-progress-bar';
+    scrollProgressContainer.appendChild(scrollProgressBar);
+    document.body.prepend(scrollProgressContainer);
+
+    // Update Scroll Progress
+    window.addEventListener('scroll', () => {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        scrollProgressBar.style.width = scrolled + "%";
+    });
+
     // ==================== DOM ELEMENTS ====================
     const header = document.getElementById('header');
     const hamburger = document.getElementById('hamburger');
