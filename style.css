@@ -1825,8 +1825,23 @@ header {
     .hero h1 { font-size: 3.2rem; margin-bottom: 1.5rem; }
     .hero p { margin: 0 auto 2.5rem; font-size: 1.05rem; }
     .hero-tagline { justify-content: center; gap: 10px; font-size: 0.75rem; letter-spacing: 4px; }
-    .logo-wrapper { width: 220px !important; height: 220px !important; margin: 0 auto -20px auto !important; }
-    .logo-wrapper img { width: 170% !important; height: 170% !important; }
+    .logo-wrapper { 
+        width: 320px !important; 
+        height: 320px !important; 
+        margin: -40px auto -80px auto !important; /* Pull up to fit in frame and reduce bottom gap */
+    }
+    .logo-wrapper img { 
+        width: 220% !important; /* Higher zoom to remove large transparent borders in PNG */
+        height: 220% !important; 
+    }
+    .hero {
+        padding-top: 100px !important;
+        min-height: 80vh !important;
+        display: block !important; /* Remove flex center to let it set at top */
+    }
+    .hero-content {
+        padding-top: 20px !important;
+    }
     .hero-tagline::before { width: 20px; }
     .hero-btns { justify-content: center; gap: 1rem; }
     .hero-stats { justify-content: center; gap: 2.5rem; }
