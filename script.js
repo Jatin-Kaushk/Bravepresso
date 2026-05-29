@@ -1,4 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Register Service Worker for Offline Support
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('./sw.js')
+                .then(reg => console.log('Service Worker registered'))
+                .catch(err => console.log('Service Worker registration failed', err));
+        });
+    }
+
     // Add page-loaded class for fade-in effect
     document.body.classList.add('page-loaded');
 
