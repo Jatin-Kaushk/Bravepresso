@@ -28,7 +28,7 @@
     <header id="header">
         <!-- ==================== ANNOUNCEMENT BAR ==================== -->
         <div class="announcement-bar">
-            <p>🎉 Special Offer: Get 10% OFF on your first order! Use code: <strong>FIRST10</strong></p>
+            <p>🎉 Get 10% OFF on your first order! Use: <strong>FIRST10</strong> | ☕ Repeat customer? Get 5% OFF! Use: <strong>REPEAT5</strong></p>
         </div>
         <div class="container">
             <nav>
@@ -145,10 +145,48 @@
             <div class="footer-bottom"><p>&copy; 2026 BRAVE PRESSO. All rights reserved.</p><p>Made with <i class="fas fa-heart" style="color:var(--gold)"></i> in India</p></div>
         </div>
     </footer>
-    <div class="cart-overlay" id="cartOverlay"></div><aside class="cart-sidebar" id="cartSidebar">
-        <div class="cart-header"><h3><i class="fas fa-shopping-bag"></i> Your Cart</h3><button class="cart-close" id="cartClose">&times;</button></div>
-        <div class="cart-body" id="cartBody"><div class="cart-empty" id="cartEmpty"><i class="fas fa-shopping-basket"></i><p>Your cart is empty</p><a href="shop.html" class="btn btn-outline btn-sm" id="startShopping">Start Shopping</a></div><div class="cart-items" id="cartItems" style="display:none;"></div></div>
-        <div class="cart-footer" id="cartFooter" style="display:none;"><div class="cart-total"><span>Total:</span><span class="cart-total-price" id="cartTotal">₹0</span></div><button class="btn btn-primary btn-full" id="checkoutBtn">Checkout Securely</button></div>
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <aside class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3><i class="fas fa-shopping-bag"></i> Your Cart</h3>
+            <button class="cart-close" id="cartClose" aria-label="Close Cart">&times;</button>
+        </div>
+        <div class="cart-body" id="cartBody">
+            <div class="cart-empty" id="cartEmpty">
+                <i class="fas fa-shopping-basket"></i>
+                <p>Your cart is empty</p>
+                <a href="shop.html" class="btn btn-outline btn-sm" id="startShopping">Start Shopping</a>
+            </div>
+            <div class="cart-items" id="cartItems" style="display:none;"></div>
+        </div>
+        <div class="cart-footer" id="cartFooter" style="display:none;">
+            <!-- Coupon Section -->
+            <div class="cart-coupon-section" style="margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid rgba(198, 166, 100, 0.1);">
+                <div class="input-group" style="display: flex; gap: 8px;">
+                    <input type="text" id="couponInput" placeholder="Enter FIRST10 or REPEAT5" style="flex: 1; background: rgba(255,255,255,0.03); border: 1px solid rgba(198, 166, 100, 0.2); border-radius: 8px; padding: 0.8rem; color: var(--cream); font-size: 0.9rem; text-transform: uppercase;">
+                    <button class="btn btn-outline btn-sm" id="applyCouponBtn" style="padding: 0 1.2rem; min-width: 80px;">Apply</button>
+                </div>
+                <p id="couponMessage" style="font-size: 0.75rem; margin-top: 0.5rem; display: none;"></p>
+            </div>
+            
+            <div class="cart-summary" style="margin-bottom: 1.5rem;">
+                <div class="summary-row" style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; color: var(--latte); font-size: 0.9rem;">
+                    <span>Subtotal</span>
+                    <span id="cartSubtotal">₹0</span>
+                </div>
+                <div class="summary-row" id="discountRow" style="display: none; justify-content: space-between; margin-bottom: 0.5rem; color: #27ae60; font-size: 0.9rem; font-weight: 600;">
+                    <span>Discount</span>
+                    <span id="cartDiscount">-₹0</span>
+                </div>
+                <div class="cart-total" style="border-top: none; padding-top: 0;">
+                    <span>Grand Total:</span>
+                    <span class="cart-total-price" id="cartTotal">₹0</span>
+                </div>
+            </div>
+            <button class="btn btn-primary btn-full" id="checkoutBtn">
+                Checkout Securely
+            </button>
+        </div>
     </aside>
     <div class="toast-container" id="toastContainer"></div><a href="https://wa.me/919821846822" class="whatsapp-float" target="_blank" aria-label="Chat with us on WhatsApp">
         <i class="fab fa-whatsapp"></i>

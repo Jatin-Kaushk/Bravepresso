@@ -385,8 +385,13 @@ document.addEventListener('DOMContentLoaded', () => {
     function saveCart() { localStorage.setItem('bravepresso_cart', JSON.stringify(cart)); }
 
     let isCouponApplied = false;
-    const DISCOUNT_RATE = 0.1; // 10%
-    const VALID_COUPON = 'FIRST10';
+    let activeDiscountRate = 0;
+    let activeCouponCode = '';
+
+    const COUPONS = {
+        'FIRST10': 0.10, // 10%
+        'REPEAT5': 0.05  // 5%
+    };
 
     function updateCartUI() {
         const totalItems = cart.reduce((s, i) => s + i.qty, 0);
@@ -427,6 +432,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (cartItems) cartItems.style.display = 'none';
             if (cartFooter) cartFooter.style.display = 'none';
             isCouponApplied = false; // Reset coupon if cart is empty
+            activeDiscountRate = 0;
+            activeCouponCode = '';
         } else {
             if (cartEmpty) cartEmpty.style.display = 'none';
             if (cartItems) {
@@ -457,7 +464,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (cartFooter) cartFooter.style.display = 'block';
             
             // Calculate Totals
-            const discount = isCouponApplied ? Math.round(subtotal * DISCOUNT_RATE) : 0;
+            const discount = isCouponApplied ? Math.round(subtotal * activeDiscountRate) : 0;
             const grandTotal = subtotal - discount;
 
             const cartSubtotal = document.getElementById('cartSubtotal');
@@ -520,23 +527,26 @@ document.addEventListener('DOMContentLoaded', () => {
     if (applyCouponBtn && couponInput) {
         applyCouponBtn.addEventListener('click', () => {
             const code = couponInput.value.trim().toUpperCase();
-            if (code === VALID_COUPON) {
-                if (isCouponApplied) {
+            if (COUPONS.hasOwnProperty(code)) {
+                if (isCouponApplied && activeCouponCode === code) {
                     showToast('Coupon already applied!', 'info');
                     return;
                 }
                 isCouponApplied = true;
+                activeCouponCode = code;
+                activeDiscountRate = COUPONS[code];
                 updateCartUI();
-                showToast('Coupon FIRST10 applied! 10% Discount added.', 'success');
+                const discountPercent = activeDiscountRate * 100;
+                showToast(`Coupon ${code} applied! ${discountPercent}% Discount added.`, 'success');
                 if (couponMessage) {
-                    couponMessage.innerText = 'Coupon FIRST10 applied successfully!';
+                    couponMessage.innerText = `Coupon ${code} applied successfully!`;
                     couponMessage.style.color = '#27ae60';
                     couponMessage.style.display = 'block';
                 }
             } else {
                 showToast('Invalid Coupon Code!', 'error');
                 if (couponMessage) {
-                    couponMessage.innerText = 'Invalid coupon code. Try FIRST10';
+                    couponMessage.innerText = 'Invalid coupon code. Try FIRST10 or REPEAT5';
                     couponMessage.style.color = '#e74c3c';
                     couponMessage.style.display = 'block';
                 }
