@@ -2293,11 +2293,54 @@ header {
     align-items: center;
     justify-content: center;
     gap: 10px;
-}
-
 .pay-btn:hover {
     background: var(--gold);
     color: var(--espresso);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(198, 166, 100, 0.2);
+}
+
+/* Track Order Styling */
+.track-input-group {
+    display: flex;
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+    width: 100%;
+}
+
+.track-input {
+    flex: 1;
+    background: rgba(0, 0, 0, 0.3) !important;
+    border: 1px solid rgba(198, 166, 100, 0.2) !important;
+    border-radius: 8px !important;
+    padding: 0.9rem 1rem !important;
+    color: var(--cream) !important;
+    font-size: 0.95rem !important;
+    transition: all 0.3s ease;
+}
+
+.track-input:focus {
+    border-color: var(--gold) !important;
+    outline: none;
+    background: rgba(198, 166, 100, 0.05) !important;
+    box-shadow: 0 0 15px rgba(198, 166, 100, 0.1);
+}
+
+.btn-track {
+    padding: 0 1.5rem !important;
+    width: auto !important;
+    margin-bottom: 0 !important;
+    white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+    .track-input-group {
+        flex-direction: column;
+    }
+    .btn-track {
+        width: 100% !important;
+    }
+}    color: var(--espresso);
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(198, 166, 100, 0.3);
 }

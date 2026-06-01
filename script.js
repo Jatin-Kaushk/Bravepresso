@@ -1257,9 +1257,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 <button class="payment-close" id="trackClose">&times;</button>
                 <h3>Track Your Order</h3>
                 <p>Enter your 6-digit Order ID to track dispatch status.</p>
-                <div style="display: flex; gap: 0.8rem; margin-bottom: 1.5rem;">
-                    <input type="text" id="trackOrderIdInput" placeholder="e.g. BP-1024" style="flex: 1; background: var(--dark); border: 1px solid rgba(198, 166, 100, 0.2); border-radius: 8px; padding: 0.9rem 1rem; color: var(--cream); font-size: 0.95rem;">
-                    <button class="pay-btn" id="trackSubmitBtn" style="padding: 0 1.5rem;"><i class="fas fa-search"></i> Track</button>
+                <div class="track-input-group">
+                    <input type="text" id="trackOrderIdInput" placeholder="e.g. BP-1024" class="track-input">
+                    <button class="pay-btn btn-track" id="trackSubmitBtn"><i class="fas fa-search"></i> Track</button>
                 </div>
                 <div id="trackingStepperContainer" style="display: none;">
                     <div class="stepper">
