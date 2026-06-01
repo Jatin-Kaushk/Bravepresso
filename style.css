@@ -2339,10 +2339,48 @@ header {
     box-shadow: 0 0 15px rgba(198, 166, 100, 0.2);
 }
 
-/* Coupons Modal */
-.coupons-modal-content {
-    text-align: left;
-    max-width: 450px;
+/* Consolidated Modal & Form Styles */
+.modal-input {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.03) !important;
+    border: 1px solid rgba(198, 166, 100, 0.2) !important;
+    border-radius: 8px !important;
+    padding: 0.8rem 1rem !important;
+    color: var(--white) !important;
+    font-size: 0.9rem !important;
+    transition: var(--transition);
+}
+
+.modal-input:focus {
+    border-color: var(--gold) !important;
+    outline: none;
+    background: rgba(198, 166, 100, 0.05) !important;
+}
+
+.modal-label {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.modal-footer-btn {
+    margin-top: 1rem;
+}
+
+/* Fix for potential overlapping issues */
+.modal {
+    z-index: 1000000;
+}
+
+.user-modal {
+    z-index: 1000001;
+}
+
+.toast-container {
+    z-index: 1000002;
 }
 
 .coupons-list {

@@ -1257,18 +1257,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p id="authSubtitle">Access exclusive coffee perks and track orders.</p>
                 <form id="authForm">
                     <div class="form-group" id="regNameGroup" style="display: none;">
-                        <label for="regName">Full Name</label>
-                        <input type="text" id="regName" placeholder="Enter your name">
+                        <label for="regName" class="modal-label">Full Name</label>
+                        <input type="text" id="regName" placeholder="Enter your name" class="modal-input">
                     </div>
                     <div class="form-group">
-                        <label for="authEmail">Email Address</label>
-                        <input type="email" id="authEmail" required placeholder="name@example.com">
+                        <label for="authEmail" class="modal-label">Email Address</label>
+                        <input type="email" id="authEmail" required placeholder="name@example.com" class="modal-input">
                     </div>
                     <div class="form-group">
-                        <label for="authPassword">Password</label>
-                        <input type="password" id="authPassword" required placeholder="••••••••">
+                        <label for="authPassword" class="modal-label">Password</label>
+                        <input type="password" id="authPassword" required placeholder="••••••••" class="modal-input">
                     </div>
-                    <button class="pay-btn" id="authSubmit" type="submit" style="width: 100%;"><i class="fas fa-sign-in-alt"></i> Login</button>
+                    <button class="pay-btn" id="authSubmit" type="submit"><i class="fas fa-sign-in-alt"></i> Login</button>
                 </form>
                 <div class="modal-switch" id="modalSwitch">
                     Don't have an account? <span id="switchBtn">Register here</span>
