@@ -2951,3 +2951,346 @@ header {
     transform: scale(1.02);
     box-shadow: 0 20px 40px rgba(0,0,0,0.5), 0 0 20px rgba(198, 166, 100, 0.1);
 }
+
+/* ==================== LIGHT MODE ==================== */
+body.light-mode {
+    --espresso: #FAF6F1;
+    --roast: #F0E6D8;
+    --gold: #8B6914;
+    --gold-dark: #6B4F10;
+    --cream: #5D4037;
+    --latte: #795548;
+    --white: #2C1A0E;
+    --glass: rgba(0, 0, 0, 0.04);
+    --glass-border: rgba(0, 0, 0, 0.1);
+    --shadow: 0 20px 40px rgba(0,0,0,0.15);
+    background-color: var(--espresso);
+    color: var(--white);
+}
+body.light-mode header {
+    background: rgba(250, 246, 241, 0.85);
+    border-bottom: 1px solid rgba(139, 105, 20, 0.15);
+}
+body.light-mode header.scrolled {
+    background: rgba(250, 246, 241, 0.97);
+}
+body.light-mode .announcement-bar {
+    background: linear-gradient(135deg, #8B6914, #6B4F10);
+    color: #FAF6F1;
+}
+body.light-mode .logo-text {
+    background: linear-gradient(to right, #8B6914, #6B4F10);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+body.light-mode .nav-links a { color: var(--cream); }
+body.light-mode .nav-links a:hover { color: var(--gold); }
+body.light-mode .cart-btn, body.light-mode .user-dropdown-btn, body.light-mode #searchBtn {
+    background: rgba(0,0,0,0.05);
+    border-color: rgba(139, 105, 20, 0.3);
+    color: var(--gold);
+}
+body.light-mode #preloader { background: var(--roast); }
+body.light-mode .hero {
+    background: linear-gradient(160deg, #F0E6D8 0%, #FAF6F1 60%, #E8D5C0 100%);
+}
+body.light-mode .feature-card, body.light-mode .recipe-card, body.light-mode .review-card,
+body.light-mode .brew-calc-card, body.light-mode .info-card, body.light-mode .contact-form {
+    background: rgba(255,255,255,0.7);
+    border-color: rgba(139,105,20,0.15);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+body.light-mode .cart-sidebar {
+    background: rgba(250, 246, 241, 0.97);
+    border-left-color: rgba(139,105,20,0.2);
+}
+body.light-mode .cart-overlay { background: rgba(0,0,0,0.3); }
+body.light-mode .dropdown-menu {
+    background: #FAF6F1;
+    border-color: rgba(139,105,20,0.2);
+}
+body.light-mode .dropdown-item { color: var(--cream); }
+body.light-mode .dropdown-item:hover { background: rgba(139,105,20,0.1); color: var(--gold); }
+body.light-mode footer {
+    background: #2C1A0E;
+    color: #D7CCC8;
+}
+body.light-mode .btn-outline {
+    border-color: var(--gold);
+    color: var(--gold);
+}
+body.light-mode .btn-outline:hover {
+    background: var(--gold);
+    color: #FAF6F1;
+}
+body.light-mode ::-webkit-scrollbar-track { background: var(--roast); }
+body.light-mode ::-webkit-scrollbar-thumb { background: linear-gradient(to bottom, var(--gold-dark), var(--gold)); }
+body.light-mode .mobile-bottom-nav {
+    background: rgba(250,246,241,0.97);
+    border-top-color: rgba(139,105,20,0.2);
+}
+body.light-mode .mobile-bottom-nav .nav-item { color: var(--cream); }
+body.light-mode input, body.light-mode select, body.light-mode textarea {
+    background: rgba(0,0,0,0.04);
+    border-color: rgba(139,105,20,0.2);
+    color: var(--white);
+}
+body.light-mode .quiz-option {
+    background: rgba(0,0,0,0.04);
+    border-color: rgba(139,105,20,0.2);
+    color: var(--cream);
+}
+body.light-mode .quiz-option:hover { border-color: var(--gold); background: rgba(139,105,20,0.08); }
+
+/* ==================== THEME TOGGLE BUTTON ==================== */
+.theme-toggle-btn { transition: transform 0.3s ease, background 0.3s ease !important; }
+.theme-toggle-btn:hover { transform: rotate(20deg) translateY(-3px) !important; }
+body.light-mode .theme-toggle-btn { background: rgba(139,105,20,0.1) !important; }
+
+/* ==================== REVIEWS CAROUSEL ==================== */
+.reviews-carousel-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+.reviews-carousel {
+    display: flex;
+    gap: 2rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 1rem;
+    scrollbar-width: none;
+}
+.reviews-carousel::-webkit-scrollbar { display: none; }
+.reviews-carousel .review-card {
+    flex: 0 0 320px;
+    scroll-snap-align: start;
+    max-width: 320px;
+}
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--gold);
+    color: var(--espresso);
+    border: none;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    font-size: 1rem;
+    cursor: pointer;
+    z-index: 10;
+    transition: var(--transition);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    display: flex; align-items: center; justify-content: center;
+}
+.carousel-btn:hover { background: var(--gold-dark); transform: translateY(-50%) scale(1.1); }
+.carousel-btn.prev-btn { left: -22px; }
+.carousel-btn.next-btn { right: -22px; }
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 1.5rem;
+}
+.carousel-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--glass-border);
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+}
+.carousel-dot.active {
+    background: var(--gold);
+    transform: scale(1.4);
+}
+@media (max-width: 768px) {
+    .carousel-btn { display: none; }
+    .reviews-carousel .review-card { flex: 0 0 85vw; max-width: 85vw; }
+}
+
+/* ==================== COFFEE QUIZ ==================== */
+.quiz-modal-content {
+    max-width: 520px;
+    text-align: center;
+    padding: 3rem 2.5rem;
+}
+.quiz-progress-bar {
+    width: 100%;
+    height: 4px;
+    background: var(--glass-border);
+    border-radius: 4px;
+    margin-bottom: 2rem;
+    overflow: hidden;
+}
+.quiz-progress {
+    height: 100%;
+    background: linear-gradient(to right, var(--gold-dark), var(--gold));
+    border-radius: 4px;
+    transition: width 0.4s ease;
+}
+.quiz-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+.quiz-option {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    color: var(--cream);
+    padding: 1rem;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 0.95rem;
+    font-family: inherit;
+    display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+}
+.quiz-option i { font-size: 1.6rem; color: var(--gold); }
+.quiz-option:hover, .quiz-option.selected {
+    border-color: var(--gold);
+    background: rgba(198,166,100,0.1);
+    color: var(--white);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(198,166,100,0.15);
+}
+.result-product-card {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 1.2rem 1.5rem;
+    margin: 1.5rem 0;
+    text-align: left;
+}
+.result-product-card img { width: 80px; height: 80px; object-fit: contain; border-radius: 8px; }
+.result-product-info h4 { color: var(--white); margin-bottom: 0.3rem; }
+.result-product-info span { color: var(--gold); font-size: 1.2rem; font-weight: 700; }
+#quizResult .section-tag { margin-bottom: 0.5rem; display: block; }
+
+/* ==================== PARALLAX HERO ==================== */
+.hero {
+    background-attachment: fixed !important;
+}
+.page-header {
+    background-attachment: fixed !important;
+}
+.floating-beans {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+}
+.bean {
+    position: absolute;
+    width: 12px; height: 18px;
+    background: radial-gradient(ellipse at 30% 30%, #5C3317, #2C1A0E);
+    border-radius: 50%;
+    opacity: 0.15;
+    animation: floatBean linear infinite;
+}
+@keyframes floatBean {
+    0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.15; }
+    90% { opacity: 0.15; }
+    100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+}
+
+/* ==================== BREW GUIDES PAGE ==================== */
+.brew-guides-section { padding: 6rem 0; }
+.guides-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+}
+.guide-card {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: var(--transition);
+    will-change: transform, box-shadow;
+}
+.guide-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(198,166,100,0.4);
+    box-shadow: 0 24px 48px rgba(0,0,0,0.5), 0 0 24px rgba(198,166,100,0.1);
+}
+.guide-card-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+.guide-card-body { padding: 1.8rem; }
+.guide-badge {
+    display: inline-block;
+    background: rgba(198,166,100,0.15);
+    border: 1px solid rgba(198,166,100,0.3);
+    color: var(--gold);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+}
+.guide-card-body h3 { margin-bottom: 0.7rem; font-size: 1.3rem; }
+.guide-card-body p { color: var(--cream); font-size: 0.9rem; margin-bottom: 1.2rem; }
+.guide-meta {
+    display: flex; gap: 1rem;
+    font-size: 0.8rem; color: var(--latte);
+}
+.guide-meta span { display: flex; align-items: center; gap: 0.4rem; }
+.guide-steps {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 2rem;
+    margin-top: 1.5rem;
+}
+.guide-steps h4 { color: var(--gold); margin-bottom: 1rem; }
+.step-list { list-style: none; display: flex; flex-direction: column; gap: 0.8rem; }
+.step-list li {
+    display: flex; align-items: flex-start; gap: 0.8rem;
+    color: var(--cream); font-size: 0.9rem;
+}
+.step-num {
+    flex-shrink: 0;
+    width: 26px; height: 26px;
+    background: var(--gold);
+    color: var(--espresso);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.75rem; font-weight: 700;
+}
+.guides-hero-banner {
+    background: linear-gradient(135deg, rgba(26,15,10,0.95), rgba(62,39,35,0.9)), url('./hero.png');
+    background-size: cover; background-position: center; background-attachment: fixed;
+    padding: 10rem 0 4rem;
+    text-align: center;
+}
+.brew-tip-box {
+    background: rgba(198,166,100,0.08);
+    border: 1px solid rgba(198,166,100,0.2);
+    border-radius: 12px;
+    padding: 1.2rem 1.5rem;
+    margin-top: 2rem;
+    display: flex; align-items: flex-start; gap: 1rem;
+}
+.brew-tip-box i { color: var(--gold); font-size: 1.2rem; flex-shrink: 0; margin-top: 2px; }
+.brew-tip-box p { color: var(--cream); font-size: 0.9rem; margin: 0; }
+@media (max-width: 768px) {
+    .guides-grid { grid-template-columns: 1fr; }
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+    .guides-grid { grid-template-columns: repeat(2, 1fr); }
+}

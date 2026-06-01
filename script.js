@@ -2452,3 +2452,276 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+/* ==================== DARK / LIGHT MODE TOGGLE ==================== */
+(function initTheme() {
+    const saved = localStorage.getItem('bravepresso-theme');
+    if (saved === 'light') document.body.classList.add('light-mode');
+})();
+
+document.addEventListener('DOMContentLoaded', function () {
+    const themeBtn = document.getElementById('themeToggleBtn');
+    const themeIcon = document.getElementById('themeIcon');
+
+    function applyTheme(isLight) {
+        if (isLight) {
+            document.body.classList.add('light-mode');
+            if (themeIcon) { themeIcon.classList.remove('fa-moon'); themeIcon.classList.add('fa-sun'); }
+            localStorage.setItem('bravepresso-theme', 'light');
+        } else {
+            document.body.classList.remove('light-mode');
+            if (themeIcon) { themeIcon.classList.remove('fa-sun'); themeIcon.classList.add('fa-moon'); }
+            localStorage.setItem('bravepresso-theme', 'dark');
+        }
+    }
+
+    // Apply correct icon on load
+    if (document.body.classList.contains('light-mode')) {
+        if (themeIcon) { themeIcon.classList.remove('fa-moon'); themeIcon.classList.add('fa-sun'); }
+    }
+
+    if (themeBtn) {
+        themeBtn.addEventListener('click', function () {
+            applyTheme(!document.body.classList.contains('light-mode'));
+        });
+    }
+
+    /* ==================== REVIEWS CAROUSEL ==================== */
+    const carousel = document.getElementById('reviewsCarousel');
+    const prevBtn = document.getElementById('reviewPrev');
+    const nextBtn = document.getElementById('reviewNext');
+    const dotsContainer = document.getElementById('carouselDots');
+
+    if (carousel) {
+        const cards = carousel.querySelectorAll('.review-card');
+        const cardWidth = 320 + 32; // card width + gap
+        let autoSlideTimer;
+
+        // Build dots
+        if (dotsContainer) {
+            cards.forEach((_, i) => {
+                const dot = document.createElement('button');
+                dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+                dot.setAttribute('aria-label', 'Go to review ' + (i + 1));
+                dot.addEventListener('click', () => scrollToCard(i));
+                dotsContainer.appendChild(dot);
+            });
+        }
+
+        function updateDots() {
+            if (!dotsContainer) return;
+            const idx = Math.round(carousel.scrollLeft / cardWidth);
+            dotsContainer.querySelectorAll('.carousel-dot').forEach((d, i) => {
+                d.classList.toggle('active', i === idx);
+            });
+        }
+
+        function scrollToCard(idx) {
+            carousel.scrollTo({ left: idx * cardWidth, behavior: 'smooth' });
+        }
+
+        function scrollBy(dir) {
+            const idx = Math.round(carousel.scrollLeft / cardWidth);
+            const next = Math.min(Math.max(idx + dir, 0), cards.length - 1);
+            scrollToCard(next);
+            resetAutoSlide();
+        }
+
+        function resetAutoSlide() {
+            clearInterval(autoSlideTimer);
+            autoSlideTimer = setInterval(() => {
+                const idx = Math.round(carousel.scrollLeft / cardWidth);
+                scrollToCard(idx >= cards.length - 1 ? 0 : idx + 1);
+            }, 4000);
+        }
+
+        if (prevBtn) prevBtn.addEventListener('click', () => scrollBy(-1));
+        if (nextBtn) nextBtn.addEventListener('click', () => scrollBy(1));
+        carousel.addEventListener('scroll', updateDots, { passive: true });
+        resetAutoSlide();
+    }
+
+    /* ==================== COFFEE QUIZ ==================== */
+    const quizModal = document.getElementById('quizModal');
+    const quizClose = document.getElementById('quizClose');
+    const beginQuiz = document.getElementById('beginQuiz');
+    const startQuizBtn = document.getElementById('startQuizBtn');
+    const quizStart = document.getElementById('quizStart');
+    const quizQuestion = document.getElementById('quizQuestion');
+    const quizResult = document.getElementById('quizResult');
+    const quizProgress = document.querySelector('.quiz-progress');
+
+    const questions = [
+        {
+            text: 'How do you usually brew your coffee?',
+            options: [
+                { label: 'French Press', icon: 'fa-mug-hot', value: 'bold' },
+                { label: 'Espresso / Moka', icon: 'fa-bolt', value: 'intense' },
+                { label: 'Pour Over / Filter', icon: 'fa-wind', value: 'light' },
+                { label: 'Instant', icon: 'fa-magic', value: 'instant' }
+            ]
+        },
+        {
+            text: 'What flavours do you love most?',
+            options: [
+                { label: 'Dark Chocolate', icon: 'fa-cookie-bite', value: 'bold' },
+                { label: 'Fruity & Bright', icon: 'fa-apple-alt', value: 'light' },
+                { label: 'Nutty & Caramel', icon: 'fa-seedling', value: 'bold' },
+                { label: 'Smooth & Mild', icon: 'fa-leaf', value: 'instant' }
+            ]
+        },
+        {
+            text: 'What time do you drink coffee?',
+            options: [
+                { label: 'Early Morning', icon: 'fa-sun', value: 'intense' },
+                { label: 'With Breakfast', icon: 'fa-bread-slice', value: 'bold' },
+                { label: 'Afternoon Pick-me-up', icon: 'fa-cloud-sun', value: 'light' },
+                { label: 'All Day!', icon: 'fa-clock', value: 'instant' }
+            ]
+        }
+    ];
+
+    const results = {
+        bold: {
+            title: 'Dark Roast Beans — Your Match!',
+            desc: 'You love bold, rich coffee with deep chocolate and hazelnut notes. Brave Presso\'s signature Dark Roast is made for you.',
+            product: 'BRAVE PRESSO — Dark Roast (100g)',
+            price: '₹449',
+            img: './product.png',
+            priceVal: 449, packSize: '100g'
+        },
+        intense: {
+            title: 'Dark Roast Beans — Your Match!',
+            desc: 'You crave intensity! Our dark roast is perfect for espresso and Moka pot, delivering a thick, concentrated cup every time.',
+            product: 'BRAVE PRESSO — Dark Roast (100g)',
+            price: '₹449',
+            img: './product.png',
+            priceVal: 449, packSize: '100g'
+        },
+        light: {
+            title: 'Dark Roast Beans — Your Match!',
+            desc: 'Even pour-over lovers are wowed by the floral complexity in Brave Presso. Our beans reveal hidden notes at lower temperatures.',
+            product: 'BRAVE PRESSO — Dark Roast (100g)',
+            price: '₹449',
+            img: './product.png',
+            priceVal: 449, packSize: '100g'
+        },
+        instant: {
+            title: 'Instant Coffee Jar — Your Match!',
+            desc: 'You want quality without the fuss. Our 24g Glass Jar instant coffee gives you a full Brave Presso experience in 60 seconds.',
+            product: 'BRAVE PRESSO — Instant Coffee Trial Pack (24g Glass Jar)',
+            price: '₹149',
+            img: './product.png',
+            priceVal: 149, packSize: '24g'
+        }
+    };
+
+    let answers = [];
+    let currentQ = 0;
+
+    function openQuiz() {
+        if (quizModal) {
+            quizModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            resetQuiz();
+        }
+    }
+
+    function resetQuiz() {
+        answers = []; currentQ = 0;
+        if (quizStart) quizStart.style.display = 'block';
+        if (quizQuestion) quizQuestion.style.display = 'none';
+        if (quizResult) quizResult.style.display = 'none';
+        if (quizProgress) quizProgress.style.width = '0%';
+    }
+
+    function showQuestion(idx) {
+        if (quizStart) quizStart.style.display = 'none';
+        if (quizResult) quizResult.style.display = 'none';
+        if (quizQuestion) quizQuestion.style.display = 'block';
+        const q = questions[idx];
+        document.getElementById('questionText').textContent = q.text;
+        const opts = document.getElementById('questionOptions');
+        opts.innerHTML = '';
+        q.options.forEach(opt => {
+            const btn = document.createElement('button');
+            btn.className = 'quiz-option';
+            btn.innerHTML = `<i class="fas ${opt.icon}"></i>${opt.label}`;
+            btn.addEventListener('click', () => {
+                answers.push(opt.value);
+                if (quizProgress) quizProgress.style.width = ((idx + 1) / questions.length * 100) + '%';
+                if (idx + 1 < questions.length) {
+                    showQuestion(idx + 1);
+                } else {
+                    showResult();
+                }
+            });
+            opts.appendChild(btn);
+        });
+    }
+
+    function showResult() {
+        if (quizQuestion) quizQuestion.style.display = 'none';
+        if (quizResult) quizResult.style.display = 'block';
+        // Tally most common answer
+        const tally = {};
+        answers.forEach(a => tally[a] = (tally[a] || 0) + 1);
+        const winner = Object.keys(tally).reduce((a, b) => tally[a] > tally[b] ? a : b);
+        const res = results[winner] || results.bold;
+        document.getElementById('resultTitle').textContent = res.title;
+        document.getElementById('resultDesc').textContent = res.desc;
+        document.getElementById('resultProductName').textContent = res.product;
+        document.getElementById('resultPrice').textContent = res.price;
+        document.getElementById('resultImg').src = res.img;
+        // Store result for add-to-cart
+        const addBtn = document.getElementById('quizAddToCart');
+        if (addBtn) {
+            addBtn.dataset.name = res.product;
+            addBtn.dataset.price = res.priceVal;
+            addBtn.dataset.pack = res.packSize;
+        }
+    }
+
+    if (startQuizBtn) startQuizBtn.addEventListener('click', openQuiz);
+    if (beginQuiz) beginQuiz.addEventListener('click', () => showQuestion(0));
+    if (quizClose) quizClose.addEventListener('click', () => {
+        if (quizModal) { quizModal.style.display = 'none'; document.body.style.overflow = ''; }
+    });
+    if (quizModal) quizModal.addEventListener('click', e => {
+        if (e.target === quizModal) { quizModal.style.display = 'none'; document.body.style.overflow = ''; }
+    });
+
+    const quizAddBtn = document.getElementById('quizAddToCart');
+    if (quizAddBtn) {
+        quizAddBtn.addEventListener('click', function () {
+            const name = this.dataset.name || 'BRAVE PRESSO — Dark Roast (100g)';
+            const price = parseFloat(this.dataset.price || 449);
+            if (typeof addToCart === 'function') {
+                addToCart(name, price, 1);
+            }
+            if (quizModal) { quizModal.style.display = 'none'; document.body.style.overflow = ''; }
+        });
+    }
+
+    /* ==================== FLOATING BEANS PARALLAX ==================== */
+    const beansContainer = document.getElementById('floatingBeans');
+    if (beansContainer) {
+        const NUM_BEANS = 18;
+        for (let i = 0; i < NUM_BEANS; i++) {
+            const bean = document.createElement('div');
+            bean.className = 'bean';
+            bean.style.left = Math.random() * 100 + '%';
+            bean.style.animationDuration = (8 + Math.random() * 12) + 's';
+            bean.style.animationDelay = (Math.random() * 10) + 's';
+            bean.style.width = (8 + Math.random() * 10) + 'px';
+            bean.style.height = (12 + Math.random() * 14) + 'px';
+            bean.style.opacity = (0.06 + Math.random() * 0.1).toString();
+            beansContainer.appendChild(bean);
+        }
+
+        window.addEventListener('scroll', function () {
+            const scrollY = window.scrollY;
+            beansContainer.style.transform = 'translateY(' + (scrollY * 0.3) + 'px)';
+        }, { passive: true });
+    }
+});
