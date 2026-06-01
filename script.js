@@ -44,6 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const startShopping = document.getElementById('startShopping');
     const backToTop = document.getElementById('backToTop');
     const toastContainer = document.getElementById('toastContainer');
+    const viewAllCouponsBtn = document.getElementById('viewAllCouponsBtn');
 
     // These will be assigned after dynamic injection
     let profileModal, closeProfileModal, profileForm, loginModal, loginClose, trackModal, trackClose, ordersModal, ordersClose, ordersListContainer, wishlistModal, wishlistClose, wishlistListContainer, authForm, authTitle, authSubtitle, regNameGroup, authSubmit, modalSwitch, switchBtn, trackOrderIdInput, trackSubmitBtn, trackingStepperContainer;
@@ -1341,6 +1342,31 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             </div>
         </div>
+
+        <!-- All Coupons Modal -->
+        <div class="user-modal" id="allCouponsModal">
+            <div class="user-modal-content coupons-modal-content" style="max-width: 480px;">
+                <button class="payment-close" id="allCouponsClose">&times;</button>
+                <h3><i class="fas fa-tags"></i> Available Offers</h3>
+                <p>Use these codes at checkout to save on your favorite coffee!</p>
+                <div class="coupons-list">
+                    <div class="coupon-card">
+                        <div class="coupon-info">
+                            <h4>FIRST10</h4>
+                            <p>10% OFF on your first order</p>
+                        </div>
+                        <button class="copy-coupon-btn" data-code="FIRST10">Copy</button>
+                    </div>
+                    <div class="coupon-card">
+                        <div class="coupon-info">
+                            <h4>REPEAT5</h4>
+                            <p>5% OFF for our regular customers</p>
+                        </div>
+                        <button class="copy-coupon-btn" data-code="REPEAT5">Copy</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     `;
     if (document.body) {
         document.body.insertAdjacentHTML('beforeend', userModalsHtml);
@@ -1368,6 +1394,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('searchInput');
     const searchCloseBtn = document.getElementById('searchCloseBtn');
     const searchResultsDropdown = document.getElementById('searchResultsDropdown');
+
+    const allCouponsModal = document.getElementById('allCouponsModal');
+    const allCouponsClose = document.getElementById('allCouponsClose');
 
     loginModal = document.getElementById('loginModal');
     loginClose = document.getElementById('loginClose');
@@ -1441,6 +1470,46 @@ document.addEventListener('DOMContentLoaded', () => {
             searchResultsDropdown.style.display = 'none';
         });
     }
+
+    // ==================== SEE ALL COUPONS LOGIC ====================
+    if (viewAllCouponsBtn && allCouponsModal) {
+        viewAllCouponsBtn.addEventListener('click', () => {
+            allCouponsModal.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        });
+    }
+
+    if (allCouponsClose) {
+        allCouponsClose.addEventListener('click', () => {
+            allCouponsModal.classList.remove('open');
+            document.body.style.overflow = '';
+        });
+    }
+
+    // Copy Coupon Logic
+    document.addEventListener('click', (e) => {
+        const copyBtn = e.target.closest('.copy-coupon-btn');
+        if (copyBtn) {
+            const code = copyBtn.dataset.code;
+            navigator.clipboard.writeText(code).then(() => {
+                const originalText = copyBtn.innerText;
+                copyBtn.innerText = 'Copied!';
+                copyBtn.classList.add('copied');
+                showToast(`Coupon ${code} copied to clipboard!`, 'success');
+                
+                // Auto-fill input if it exists
+                const couponInput = document.getElementById('couponInput');
+                if (couponInput) {
+                    couponInput.value = code;
+                }
+
+                setTimeout(() => {
+                    copyBtn.innerText = originalText;
+                    copyBtn.classList.remove('copied');
+                }, 2000);
+            });
+        }
+    });
 
     // ==================== BREW CALCULATOR LOGIC ====================
     const ratioBtns = document.querySelectorAll('.ratio-btn');
