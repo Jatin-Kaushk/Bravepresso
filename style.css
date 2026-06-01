@@ -103,7 +103,7 @@ button { font-family: inherit; cursor: pointer; }
     justify-content: center;
     align-items: center;
     z-index: 999999;
-    transition: opacity 0.2s ease, visibility 0.2s ease;
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.8s;
 }
 
 #preloader.fade-out {
@@ -116,54 +116,60 @@ button { font-family: inherit; cursor: pointer; }
     display: flex;
     flex-direction: column;
     align-items: center;
+    perspective: 1000px;
 }
 
 .preloader-logo {
-    width: 120px;
-    height: 120px;
+    width: 140px;
+    height: 140px;
     object-fit: contain;
     flex-shrink: 0;
     margin-bottom: 2rem;
-    animation: logoPulse 2s infinite ease-in-out;
+    animation: preloaderLogoEntry 1.5s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+    filter: drop-shadow(0 0 20px rgba(198, 166, 100, 0.2));
 }
 
 .preloader-bar-container {
-    width: 200px;
+    width: 220px;
     height: 2px;
-    background: rgba(198, 166, 100, 0.1);
-    border-radius: 2px;
+    background: rgba(198, 166, 100, 0.05);
+    border-radius: 4px;
     overflow: hidden;
-    margin-bottom: 1rem;
+    margin-bottom: 1.2rem;
 }
 
 .preloader-bar {
     width: 0%;
     height: 100%;
-    background: var(--gold);
-    animation: barFill 1.5s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+    background: linear-gradient(to right, var(--gold-dark), var(--gold));
+    animation: preloaderBarFill 2s cubic-bezier(0.65, 0, 0.35, 1) forwards;
 }
 
 .preloader-text {
     font-family: 'Playfair Display', serif;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     color: var(--gold);
-    letter-spacing: 4px;
+    letter-spacing: 6px;
     font-weight: 700;
+    text-transform: uppercase;
     opacity: 0;
-    animation: textFadeIn 0.8s ease forwards 0.5s;
+    transform: translateY(10px);
+    animation: preloaderTextFadeIn 1s cubic-bezier(0.23, 1, 0.32, 1) forwards 0.8s;
 }
 
-@keyframes logoPulse {
-    0%, 100% { transform: scale(1); opacity: 0.8; }
-    50% { transform: scale(1.2); opacity: 1; }
+@keyframes preloaderLogoEntry {
+    0% { opacity: 0; transform: scale(0.7) rotateY(-20deg); }
+    100% { opacity: 1; transform: scale(1) rotateY(0); }
 }
 
-@keyframes barFill {
-    to { width: 100%; }
+@keyframes preloaderBarFill {
+    0% { width: 0%; }
+    100% { width: 100%; }
 }
 
-@keyframes textFadeIn {
-    to { opacity: 1; transform: translateY(0); }
+@keyframes preloaderTextFadeIn {
+    0% { opacity: 0; transform: translateY(10px); }
+    100% { opacity: 0.9; transform: translateY(0); }
 }
 
 /* ==================== PROGRESS RING ==================== */

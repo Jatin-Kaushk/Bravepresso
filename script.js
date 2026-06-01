@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 preloader.classList.add('fade-out');
                 document.body.style.overflow = '';
-            }, 50); // Reduced from 200ms to 50ms
+            }, 1000); // Increased to 1000ms for premium animation feel
         });
     } else {
         document.body.style.overflow = '';
