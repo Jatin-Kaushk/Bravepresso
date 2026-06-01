@@ -558,13 +558,27 @@ document.addEventListener('DOMContentLoaded', () => {
             if (existing) { existing.qty += quantity; } else { cart.push({ name: currentName, qty: quantity, price: currentPrice }); }
             saveCart(); updateCartUI();
             
+            // Auto-Open Cart Sidebar
+            if (typeof openCart === 'function') openCart();
+            
             // Cart Pulse Animation
             const cartBtn = document.getElementById('cartBtn');
             if (cartBtn) {
                 cartBtn.classList.remove('pulse');
                 void cartBtn.offsetWidth; // Trigger reflow
                 cartBtn.classList.add('pulse');
+                setTimeout(() => cartBtn.classList.remove('pulse'), 500);
             }
+
+            // Button Success State
+            const originalText = addToCartBtn.innerHTML;
+            addToCartBtn.classList.add('added');
+            addToCartBtn.innerHTML = '<i class="fas fa-check"></i> Added!';
+            
+            setTimeout(() => {
+                addToCartBtn.classList.remove('added');
+                addToCartBtn.innerHTML = originalText;
+            }, 2000);
             
             showToast(`${quantity} pack(s) added to cart!`, 'success');
             syncCalculatorState();
@@ -2228,14 +2242,14 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // Validate 6 digits
             if (!/^\d{6}$/.test(pincode)) {
-                pincodeStatus.textContent = 'Please enter a valid 6-digit pincode.';
+                pincodeStatus.innerHTML = '<i class="fas fa-exclamation-circle"></i> Please enter a valid 6-digit pincode.';
                 pincodeStatus.className = 'pincode-status error';
                 return;
             }
 
             checkPincodeBtn.disabled = true;
             checkPincodeBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
-            pincodeStatus.textContent = 'Checking...';
+            pincodeStatus.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Checking...';
             pincodeStatus.className = 'pincode-status';
 
             setTimeout(() => {
@@ -2245,10 +2259,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 // For demonstration, let's assume all pincodes starting with '1' are available
                 // and others are subject to a mock check
                 if (pincode.startsWith('0')) {
-                    pincodeStatus.textContent = 'Sorry, delivery is not available for this location yet.';
+                    pincodeStatus.innerHTML = '<i class="fas fa-times-circle"></i> Sorry, delivery is not available for this location yet.';
                     pincodeStatus.className = 'pincode-status error';
                 } else {
-                    pincodeStatus.textContent = 'Great! Delivery is available for this pincode.';
+                    pincodeStatus.innerHTML = '<i class="fas fa-check-circle"></i> Great! Delivery is available for this pincode.';
                     pincodeStatus.className = 'pincode-status success';
                 }
             }, 1000);
