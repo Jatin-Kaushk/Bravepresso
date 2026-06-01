@@ -12,6 +12,7 @@ const ASSETS_TO_CACHE = [
     './shipping.html',
     './style.css',
     './script.js',
+    './manifest.json',
     './lion-logo.png',
     './product.png',
     './product-back.png',

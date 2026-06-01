@@ -2293,6 +2293,8 @@ header {
     align-items: center;
     justify-content: center;
     gap: 10px;
+}
+
 .pay-btn:hover {
     background: var(--gold);
     color: var(--espresso);
@@ -2306,24 +2308,29 @@ header {
     gap: 0.8rem;
     margin-bottom: 1.5rem;
     width: 100%;
+    align-items: stretch;
 }
 
 .track-input {
     flex: 1;
-    background: rgba(0, 0, 0, 0.3) !important;
-    border: 1px solid rgba(198, 166, 100, 0.2) !important;
+    background: rgba(0, 0, 0, 0.4) !important;
+    border: 1px solid rgba(198, 166, 100, 0.3) !important;
     border-radius: 8px !important;
     padding: 0.9rem 1rem !important;
-    color: var(--cream) !important;
+    color: var(--white) !important;
     font-size: 0.95rem !important;
     transition: all 0.3s ease;
+}
+
+.track-input::placeholder {
+    color: rgba(215, 204, 200, 0.5);
 }
 
 .track-input:focus {
     border-color: var(--gold) !important;
     outline: none;
-    background: rgba(198, 166, 100, 0.05) !important;
-    box-shadow: 0 0 15px rgba(198, 166, 100, 0.1);
+    background: rgba(198, 166, 100, 0.08) !important;
+    box-shadow: 0 0 15px rgba(198, 166, 100, 0.2);
 }
 
 .btn-track {
@@ -2331,6 +2338,13 @@ header {
     width: auto !important;
     margin-bottom: 0 !important;
     white-space: nowrap;
+    background: var(--gold) !important;
+    color: var(--espresso) !important;
+}
+
+.btn-track:hover {
+    background: var(--white) !important;
+    transform: translateY(-2px);
 }
 
 @media (max-width: 480px) {
@@ -2339,10 +2353,8 @@ header {
     }
     .btn-track {
         width: 100% !important;
+        padding: 1rem !important;
     }
-}    color: var(--espresso);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(198, 166, 100, 0.3);
 }
 
 .pay-btn i { font-size: 1.1rem; }
@@ -2356,14 +2368,6 @@ header {
     transition: var(--transition); z-index: 100;
 }
 .close-modal:hover, .payment-close:hover { background: var(--gold); color: var(--darker); transform: rotate(90deg); }
-
-.pay-btn { 
-    background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(198, 166, 100, 0.2); 
-    color: var(--cream); padding: 1.2rem; border-radius: 12px; cursor: pointer; 
-    transition: 0.3s; display: flex; align-items: center; justify-content: center; gap: 1rem; 
-    font-weight: 600; font-size: 1.1rem; width: 100%; margin-bottom: 1rem;
-}
-.pay-btn:hover { background: rgba(198, 166, 100, 0.1); border-color: var(--gold); transform: translateY(-3px); }
 
 .payment-status { display: none; margin-top: 1.5rem; color: #25D366; font-weight: bold; }
 .stepper { display: flex; flex-direction: column; gap: 2rem; position: relative; margin: 2rem 0; padding-left: 2.5rem; text-align: left; }
